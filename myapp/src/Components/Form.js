@@ -53,6 +53,26 @@ const MyForm = () => {
   const onChangeDis = (newValue) => {
     setInputValueDis(newValue);
   };
+  const [inputValueRad, setInputValueRad] = useState(1);
+  const onChangeRad = (newValue) => {
+    setInputValueRad(newValue);
+  };
+  const [inputValueTax, setInputValueTax] = useState(1);
+  const onChangeTax = (newValue) => {
+    setInputValueTax(newValue);
+  };
+  const [inputValuePTRATIO, setInputValuePTRATIO] = useState(1);
+  const onChangePTRATIO = (newValue) => {
+    setInputValuePTRATIO(newValue);
+  };
+  const [inputValueB, setInputValueB] = useState(1);
+  const onChangeB = (newValue) => {
+    setInputValueB(newValue);
+  };
+  const [inputValueLSTAT, setInputValueLSTAT] = useState(1);
+  const onChangeLSTAT = (newValue) => {
+    setInputValueLSTAT(newValue);
+  };
 
   const marks = {
     0: "0",
@@ -62,6 +82,10 @@ const MyForm = () => {
   const Binarymarks = {
     0: "0",
     1: "1",
+  };
+  const dicenmarks = {
+    0: "0",
+    10: "10",
   };
 
   const [value, setValue] = useState(1);
@@ -89,12 +113,12 @@ const MyForm = () => {
                   marks={marks}
                   defaultValue={37}
                   onChange={onChangeZN}
-                  value={typeof inputValueZN === "number" ? inputValueZN : 0}
+                  value={typeof inputValueZN === "number" ? inputValueZN : 0} 
                 />
               </Col>
               <Col>
                 <InputNumber
-                  min={1}
+                  min={0}
                   max={100}
                   style={{
                     margin: "0 16px",
@@ -122,7 +146,7 @@ const MyForm = () => {
               </Col>
               <Col>
                 <InputNumber
-                  min={1}
+                  min={0}
                   max={100}
                   style={{
                     margin: "0 16px",
@@ -133,7 +157,6 @@ const MyForm = () => {
               </Col>
             </Row>
           </Form.Item>
-
           <Form.Item name="CHAS" rules={[{ required: true }]}>
             <label> Proximité à la rivière Charles</label>
             <Row>
@@ -176,10 +199,10 @@ const MyForm = () => {
                 <Slider
                   min={1}
                   max={10}
-                  marks={Binarymarks}
+                  marks={dicenmarks}
                   onChange={onChangeRM}
                   value={typeof inputValueRM === "number" ? inputValueRM : 0}
-                  step={0.01}
+                  // step={0.01}
                 />
               </Col>
               <Col span={4}>
@@ -212,7 +235,7 @@ const MyForm = () => {
               </Col>
               <Col>
                 <InputNumber
-                  min={1}
+                  min={0}
                   max={100}
                   style={{
                     margin: "0 16px",
@@ -224,7 +247,7 @@ const MyForm = () => {
             </Row>
           </Form.Item>
           <Form.Item name="DIS" rules={[{ required: true }]}>
-            <label> Distance aux centres d’emploi </label>
+            <label> Distance aux centres d’emploi (KM) </label>
             <Row>
               <Col span={10}>
                 <Slider
@@ -240,7 +263,7 @@ const MyForm = () => {
               </Col>
               <Col>
                 <InputNumber
-                  min={1}
+                  min={0}
                   max={100}
                   style={{
                     margin: "0 16px",
@@ -251,6 +274,145 @@ const MyForm = () => {
               </Col>
             </Row>
           </Form.Item>
+          <Form.Item name="RAD" rules={[{ required: true }]}>
+            <label> Accessibilité aux autoroutes </label>
+            <Row>
+              <Col span={10}>
+                <Slider
+                  min={1}
+                  max={100}
+                  marks={marks}
+                  defaultValue={37}
+                  onChange={onChangeRad}
+                  value={
+                    typeof inputValueRad === "number" ? inputValueRad : 0
+                  }
+                />
+              </Col>
+              <Col>
+                <InputNumber
+                  min={1}
+                  max={100}
+                  style={{
+                    margin: "0 16px",
+                  }}
+                  value={inputValueRad}
+                  onChange={onChangeRad}
+                />
+              </Col>
+            </Row>
+          </Form.Item>
+          <Form.Item name="TAX" rules={[{ required: true }]}>
+            <label> Taux d’imposition foncière </label>
+            <Row>
+              <Col span={10}>
+                <Slider
+                  min={0}
+                  max={100}
+                  marks={marks}
+                  defaultValue={37}
+                  onChange={onChangeTax}
+                  value={
+                    typeof inputValueTax === "number" ? inputValueTax : 0
+                  }
+                />
+              </Col>
+              <Col>
+                <InputNumber
+                  min={0}
+                  max={100}
+                  style={{
+                    margin: "0 16px",
+                  }}
+                  value={inputValueTax}
+                  onChange={onChangeTax}
+                />
+              </Col>
+            </Row>
+          </Form.Item>
+          <Form.Item name="PTRATIO" rules={[{ required: true }]}>
+            <label> Ratio élèves/professeur </label>
+            <Row>
+              <Col span={10}>
+                <Slider
+                  min={1}
+                  max={100}
+                  marks={marks}
+                  defaultValue={37}
+                  onChange={onChangePTRATIO}
+                  value={
+                    typeof inputValuePTRATIO === "number" ? inputValuePTRATIO : 0
+                  }
+                />
+              </Col>
+              <Col>
+                <InputNumber
+                  min={1}
+                  max={100}
+                  style={{
+                    margin: "0 16px",
+                  }}
+                  value={inputValuePTRATIO}
+                  onChange={onChangePTRATIO}
+                />
+              </Col>
+            </Row>
+          </Form.Item>
+          <Form.Item name="B" rules={[{ required: true }]}>
+            <label> Proportion de personnes de couleur (%) </label>
+            <Row>
+              <Col span={10}>
+                <Slider
+                  min={0}
+                  max={100}
+                  marks={marks}
+                  defaultValue={37}
+                  onChange={onChangeB}
+                  value={typeof inputValueB === "number" ? inputValueB : 0} 
+                />
+              </Col>
+              <Col>
+                <InputNumber
+                  min={0}
+                  max={100}
+                  style={{
+                    margin: "0 16px",
+                  }}
+                  value={inputValueB}
+                  onChange={onChangeB}
+                />
+              </Col>
+            </Row>
+          </Form.Item>
+          <Form.Item name="LSTAT" rules={[{ required: true }]}>
+            <label> Pourcentage de la population de classe inférieure (%) </label>
+            <Row>
+              <Col span={10}>
+                <Slider
+                  min={0}
+                  max={100}
+                  marks={marks}
+                  defaultValue={37}
+                  onChange={onChangeB}
+                  value={typeof inputValueB === "number" ? inputValueB : 0} 
+                />
+              </Col>
+              <Col>
+                <InputNumber
+                  min={0}
+                  max={100}
+                  style={{
+                    margin: "0 16px",
+                  }}
+                  value={inputValueB}
+                  onChange={onChangeB}
+                />
+              </Col>
+            </Row>
+          </Form.Item>
+
+
+        
 
         
 

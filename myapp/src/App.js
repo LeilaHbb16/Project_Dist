@@ -11,7 +11,7 @@ function App() {
     <div>
       <MyMenu/>
   
-      <MyCarousel />
+      {/* <MyCarousel /> */}
       {/* <MySteps/> */}
       <h1>
         <span>Estimation d'un bien</span>
