@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+// App.js
+import React from 'react';
 import './App.css';
+import MyCarousel from "./Components/CarouselComponent.js";
+import MyMenu from './Components/Menu.js';
+import MySteps from './Components/Steps.js';
+import MyForm from './Components/Form.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MyMenu/>
+  
+      <MyCarousel />
+      {/* <MySteps/> */}
+      <h1>
+        <span>Estimation d'un bien</span>
+      </h1>
+      <MyForm/>
+      
     </div>
   );
 }
