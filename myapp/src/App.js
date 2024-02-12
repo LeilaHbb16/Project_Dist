@@ -18,7 +18,14 @@ function App() {
             <h1>
               <span>Estimation d'un bien</span>
             </h1>
-            <MyForm />
+            <div >
+              <div className="left">
+                <MyForm />
+              </div>
+              <div className="right">
+                <h3>sdfghjklmlkjhgf</h3>
+              </div>
+            </div>
           </div>
         </div>
       </div>

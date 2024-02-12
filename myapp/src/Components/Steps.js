@@ -39,7 +39,7 @@ const MySteps = () => {
   };
 
   return (
-    <>
+    <div>
       <Steps current={current} items={items} />
       <div style={contentStyle}>{steps[current].content}</div>
       <div style={{ marginTop: 24 }}>
@@ -59,7 +59,7 @@ const MySteps = () => {
           </Button>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
