@@ -10,7 +10,7 @@ import {
   InputNumber,
   Radio,
 } from "antd";
-import "../App.css"
+import "../App.css";
 const { Step } = Steps;
 
 const MyForm = () => {
@@ -97,38 +97,57 @@ const MyForm = () => {
   return (
     <div className="form">
       <Form onFinish={onFinish}>
-        <Steps current={currentStep}>
-          <Step title="Step 1" />
-          <Step title="Step 2" />
-          <Step title="Step 3" />
-        </Steps>
+        <div className="steps-container">
+          <Steps current={currentStep} className="custom-steps">
+            <Step title="Step 1" />
+            <Step title="Step 2" />
+          </Steps>
+        </div>
         <div style={{ margin: 20 }}>
           <div style={{ display: currentStep === 0 ? "block" : "none" }}>
             <Form.Item name="ZN" rules={[{ required: true }]}>
-              <label>Proportion de terrains résidentiels (%) </label>
-              <Row>
-                <Col span={10}>
-                  <Slider
-                    min={0}
-                    max={100}
-                    marks={marks}
-                    defaultValue={37}
-                    onChange={onChangeZN}
-                    value={typeof inputValueZN === "number" ? inputValueZN : 0}
-                  />
-                </Col>
-                <Col>
-                  <InputNumber
-                    min={0}
-                    max={100}
-                    style={{
-                      margin: "0 16px",
-                    }}
-                    value={inputValueZN}
-                    onChange={onChangeZN}
-                  />
-                </Col>
-              </Row>
+              <div className="inputVar">
+                <label className="variables">
+                  Proportion de terrains résidentiels (%){" "}
+                </label>
+
+                <Row>
+                  <Col span={10}>
+                    <Col span={2} className="min">
+                      <span>0</span>
+                    </Col>
+
+                    <Slider
+                      min={0}
+                      max={100}
+                      defaultValue={37}
+                      onChange={onChangeZN}
+                      value={
+                        typeof inputValueZN === "number" ? inputValueZN : 0
+                      }
+                      classNames="slider"
+                      tooltip={{
+                        open: true,
+                      }}
+                      // tooltipPlacement="top"
+                    />
+                  </Col>
+                  <Col span={1} offset={1} className="max">
+                    <span>100</span>
+                  </Col>
+                  <Col>
+                    <InputNumber
+                      min={0}
+                      max={100}
+                      style={{
+                        margin: "0 16px",
+                      }}
+                      value={inputValueZN}
+                      onChange={onChangeZN}
+                    />
+                  </Col>
+                </Row>
+              </div>
             </Form.Item>
             <Form.Item name="INDUS" rules={[{ required: true }]}>
               <label> Proportion d’entreprises non commerciales (%)</label>
@@ -137,7 +156,10 @@ const MyForm = () => {
                   <Slider
                     min={0}
                     max={100}
-                    marks={marks}
+                    classNames="slider"
+                    tooltip={{
+                      open: true,
+                    }}
                     defaultValue={37}
                     onChange={onChangeINDUS}
                     value={
@@ -174,7 +196,10 @@ const MyForm = () => {
                   <Slider
                     min={0}
                     max={1}
-                    marks={Binarymarks}
+                    classNames="slider"
+                    tooltip={{
+                      open: true,
+                    }}
                     onChange={onChangeNox}
                     value={
                       typeof inputValueNox === "number" ? inputValueNox : 0
@@ -202,7 +227,10 @@ const MyForm = () => {
                   <Slider
                     min={1}
                     max={10}
-                    marks={dicenmarks}
+                    classNames="slider"
+                    tooltip={{
+                      open: true,
+                    }}
                     onChange={onChangeRM}
                     value={typeof inputValueRM === "number" ? inputValueRM : 0}
                     // step={0.01}
@@ -228,7 +256,10 @@ const MyForm = () => {
                   <Slider
                     min={0}
                     max={100}
-                    marks={marks}
+                    classNames="slider"
+                    tooltip={{
+                      open: true,
+                    }}
                     defaultValue={37}
                     onChange={onChangeAge}
                     value={
@@ -256,7 +287,10 @@ const MyForm = () => {
                   <Slider
                     min={0}
                     max={100}
-                    marks={marks}
+                    classNames="slider"
+                    tooltip={{
+                      open: true,
+                    }}
                     defaultValue={37}
                     onChange={onChangeDis}
                     value={
@@ -284,7 +318,10 @@ const MyForm = () => {
                   <Slider
                     min={1}
                     max={100}
-                    marks={marks}
+                    classNames="slider"
+                    tooltip={{
+                      open: true,
+                    }}
                     defaultValue={37}
                     onChange={onChangeRad}
                     value={
@@ -312,7 +349,10 @@ const MyForm = () => {
                   <Slider
                     min={0}
                     max={100}
-                    marks={marks}
+                    classNames="slider"
+                    tooltip={{
+                      open: true,
+                    }}
                     defaultValue={37}
                     onChange={onChangeTax}
                     value={
@@ -340,7 +380,10 @@ const MyForm = () => {
                   <Slider
                     min={1}
                     max={100}
-                    marks={marks}
+                    classNames="slider"
+                    tooltip={{
+                      open: true,
+                    }}
                     defaultValue={37}
                     onChange={onChangePTRATIO}
                     value={
@@ -370,7 +413,10 @@ const MyForm = () => {
                   <Slider
                     min={0}
                     max={100}
-                    marks={marks}
+                    classNames="slider"
+                    tooltip={{
+                      open: true,
+                    }}
                     defaultValue={37}
                     onChange={onChangeB}
                     value={typeof inputValueB === "number" ? inputValueB : 0}
@@ -391,7 +437,6 @@ const MyForm = () => {
             </Form.Item>
             <Form.Item name="LSTAT" rules={[{ required: true }]}>
               <label>
-                
                 Pourcentage de la population de classe inférieure (%)
               </label>
               <Row>
@@ -399,10 +444,15 @@ const MyForm = () => {
                   <Slider
                     min={0}
                     max={100}
-                    marks={marks}
+                    classNames="slider"
+                    tooltip={{
+                      open: true,
+                    }}
                     defaultValue={37}
                     onChange={onChangeB}
-                    value={typeof inputValueLSTAT === "number" ? inputValueLSTAT : 0}
+                    value={
+                      typeof inputValueLSTAT === "number" ? inputValueLSTAT : 0
+                    }
                   />
                 </Col>
                 <Col>
@@ -421,15 +471,6 @@ const MyForm = () => {
           </div>
           <div style={{ display: currentStep === 1 ? "block" : "none" }}>
             <Form.Item
-              label="Input 2"
-              name="input2"
-              rules={[{ required: true }]}
-            >
-              <Input />
-            </Form.Item>
-          </div>
-          <div style={{ display: currentStep === 2 ? "block" : "none" }}>
-            <Form.Item
               label="Input 3"
               name="input3"
               rules={[{ required: true }]}
@@ -444,12 +485,12 @@ const MyForm = () => {
               Previous
             </Button>
           )}
-          {currentStep < 2 && (
+          {currentStep < 1 && (
             <Button type="primary" onClick={handleNext}>
               Next
             </Button>
           )}
-          {currentStep === 2 && (
+          {currentStep === 1 && (
             <Button type="primary" htmlType="submit">
               Submit
             </Button>
