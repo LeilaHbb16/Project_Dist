@@ -249,6 +249,17 @@ h1 {
     font-family: 'AvenirLTStd-Heavy';
 }
 
+:where(.css-dev-only-do-not-override-1b0bdye).ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
+  border-color: #007f8b;
+  background-color: #007f8b;
+}
+:where(.css-dev-only-do-not-override-1b0bdye).ant-radio-wrapper .ant-radio-checked::after {
+  border: 1px solid #007f8b;
+
+}
+.ant-radio-wrapper:hover :where(.css-dev-only-do-not-override-1b0bdye).ant-radio-wrapper, :where(.css-dev-only-do-not-override-1b0bdye).ant-radio-wrapper:hover .ant-radio-inner {
+  border-color: #007f8b;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

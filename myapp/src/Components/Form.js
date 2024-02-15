@@ -108,7 +108,7 @@ const MyForm = () => {
             <Form.Item name="ZN" rules={[{ required: true }]}>
               <div className="inputVar">
                 <label className="variables">
-                  Proportion de terrains résidentiels (%){" "}
+                  Proportion de terrains résidentiels (%)
                 </label>
 
                 <Row>
@@ -150,7 +150,7 @@ const MyForm = () => {
               </div>
             </Form.Item>
             <Form.Item name="INDUS" rules={[{ required: true }]}>
-              <label> Proportion d’entreprises non commerciales (%)</label>
+              <label className="variables"> Proportion d’entreprises non commerciales (%)</label>
               <Row>
                 <Col span={10}>
                   <Slider
@@ -181,7 +181,7 @@ const MyForm = () => {
               </Row>
             </Form.Item>
             <Form.Item name="CHAS" rules={[{ required: true }]}>
-              <label> Proximité à la rivière Charles</label>
+              <label className="variables"> Proximité à la rivière Charles</label>
               <Row>
                 <Radio.Group onChange={onChangeRadio} value={value}>
                   <Radio value={1}>Oui</Radio>
@@ -190,7 +190,7 @@ const MyForm = () => {
               </Row>
             </Form.Item>
             <Form.Item name="NOX" rules={[{ required: true }]}>
-              <label> Proportion d’entreprises non commerciales</label>
+              <label className="variables"> Proportion d’entreprises non commerciales</label>
               <Row>
                 <Col span={10}>
                   <Slider
@@ -221,7 +221,7 @@ const MyForm = () => {
               </Row>
             </Form.Item>
             <Form.Item name="RM" rules={[{ required: true }]}>
-              <label> Nombre moyen de pièces (%) </label>
+              <label className="variables"> Nombre moyen de pièces (%) </label>
               <Row>
                 <Col span={10}>
                   <Slider
@@ -250,7 +250,7 @@ const MyForm = () => {
               </Row>
             </Form.Item>
             <Form.Item name="AGE" rules={[{ required: true }]}>
-              <label> Proportion de maisons anciennes (%) </label>
+              <label className="variables"> Proportion de maisons anciennes (%) </label>
               <Row>
                 <Col span={10}>
                   <Slider
@@ -281,7 +281,7 @@ const MyForm = () => {
               </Row>
             </Form.Item>
             <Form.Item name="DIS" rules={[{ required: true }]}>
-              <label> Distance aux centres d’emploi (KM) </label>
+              <label className="variables"> Distance aux centres d’emploi (KM) </label>
               <Row>
                 <Col span={10}>
                   <Slider
@@ -312,7 +312,7 @@ const MyForm = () => {
               </Row>
             </Form.Item>
             <Form.Item name="RAD" rules={[{ required: true }]}>
-              <label> Accessibilité aux autoroutes </label>
+              <label className="variables"> Accessibilité aux autoroutes </label>
               <Row>
                 <Col span={10}>
                   <Slider
@@ -343,7 +343,7 @@ const MyForm = () => {
               </Row>
             </Form.Item>
             <Form.Item name="TAX" rules={[{ required: true }]}>
-              <label> Taux d’imposition foncière </label>
+              <label className="variables"> Taux d’imposition foncière </label>
               <Row>
                 <Col span={10}>
                   <Slider
@@ -374,7 +374,7 @@ const MyForm = () => {
               </Row>
             </Form.Item>
             <Form.Item name="PTRATIO" rules={[{ required: true }]}>
-              <label> Ratio élèves/professeur </label>
+              <label className="variables"> Ratio élèves/professeur </label>
               <Row>
                 <Col span={10}>
                   <Slider
@@ -407,7 +407,7 @@ const MyForm = () => {
               </Row>
             </Form.Item>
             <Form.Item name="B" rules={[{ required: true }]}>
-              <label> Proportion de personnes de couleur (%) </label>
+              <label className="variables"> Proportion de personnes de couleur (%) </label>
               <Row>
                 <Col span={10}>
                   <Slider
@@ -436,7 +436,7 @@ const MyForm = () => {
               </Row>
             </Form.Item>
             <Form.Item name="LSTAT" rules={[{ required: true }]}>
-              <label>
+              <label className="variables">
                 Pourcentage de la population de classe inférieure (%)
               </label>
               <Row>
