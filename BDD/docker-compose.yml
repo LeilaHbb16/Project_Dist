@@ -1,0 +1,25 @@
+version: "3"
+services:
+  web:
+    container_name: back
+    build: .
+    labels:
+      io.portainer.accesscontrol.teams: backend
+    ports:
+      - "0.0.0.0:5050:5050"
+    command: bash -c  "python3 app.py"
+
+    volumes:
+      - .:/code
+    stdin_open: true
+    tty: true
+    # networks:
+    # - back-network
+    environment:
+      FLASK_APP: app.py
+      FLASK_ENV: development
+networks:
+  default:
+    driver: bridge
+  # back-network:
+  # external: true

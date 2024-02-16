@@ -1,34 +1,42 @@
-// App.js
-import React from "react";
-import "./App.css";
-import MyForm from "./Components/Form.js";
-import image1 from "../src/images/estimation-etape-1.png";
+import React, { useState, useEffect } from 'react';
+import { Table } from 'antd';
+import 'antd/dist/antd.css';
+import { fetchHouseEstimations } from './api';
 
-function App() {
+const HousingTable = () => {
+  const [houseEstimations, setHouseEstimations] = useState(null);
+
+  useEffect(() => {
+    
+    fetchHouseEstimations()
+      .then(estimations => {
+        setHouseEstimations(estimations);
+      });
+  }, []);
+
+  // Définir les colonnes du tableau
+  const columns = [
+    {
+      title: 'indus',
+      dataIndex: 'indus',
+      key: 'indus',
+    },
+    // Ajoutez d'autres colonnes selon vos besoins
+    {
+      title: 'zn',
+      dataIndex: 'zn',
+      key: 'zn',
+    },
+    {
+      title: 'target',
+      dataIndex: 'target',
+      key: 'target',
+    },
+  ];
+
   return (
-    <div className="content">
-      <div className="container">
-        <div className="formulaire">
-          <div className="row">
-            <h1>
-              <span className="fa-stack">Estimation d'un bien</span>
-            </h1>
-            <div className="total" >
-              <div className="left">
-                <MyForm />
-              </div>
-              <div className="right">
-                <div className="etape">
-                <img src={image1} alt="Image 1" className="estimation" />
-                </div>
-                <h3>sdfghjklmlkjhgf</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Table dataSource={houseEstimations} columns={columns} />
   );
-}
+};
 
-export default App;
+export default HousingTable;

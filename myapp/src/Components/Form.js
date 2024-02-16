@@ -74,19 +74,6 @@ const MyForm = () => {
     setInputValueLSTAT(newValue);
   };
 
-  const marks = {
-    0: "0",
-    40: "40",
-    100: "100",
-  };
-  const Binarymarks = {
-    0: "0",
-    1: "1",
-  };
-  const dicenmarks = {
-    0: "0",
-    10: "10",
-  };
 
   const [value, setValue] = useState(1);
   const onChangeRadio = (e) => {
