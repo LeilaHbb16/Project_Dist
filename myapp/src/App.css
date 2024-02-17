@@ -1,0 +1,270 @@
+.App {
+  text-align: center;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  padding-top: 60px;
+  min-height: 650px;
+}
+.container {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  /* max-width: 1200px; */
+
+  background-color: #fff;
+}
+.formulaire {
+  box-sizing: border-box;
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+.content:before {
+  position: absolute;
+  content: "";
+  clip-path: polygon(0 68%, 100% 41%, 100% 100%, 0 100%);
+  background-color: #007f8b;
+  top: 0;
+  width: 100%;
+  height: 640px;
+  z-index: 2;
+}
+#content:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 640px;
+  background-color: #dceef0;
+  z-index: 1;
+}
+.row {
+  position: relative;
+  z-index: 3;
+}
+/* .form {
+  display: block;
+  background-color: #fff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 0 0 20px;
+  overflow: hidden;
+} */
+
+.total {
+  width: 100%;
+  display: flex;
+}
+.left {
+  flex: 1;
+  width: 66.66%;
+}
+.right {
+  flex: 1;
+  width: 33.33%;
+}
+.etape {
+  text-align: center;
+  height: 230px;
+}
+.estimation {
+  max-height: 100%;
+  margin: 0;
+}
+.steps-container {
+  text-align: right;
+}
+
+.steps-container .ant-steps-item-process .ant-steps-item-icon {
+  background-color: red !important;
+}
+h1 {
+  font-family: "AvenirLTStd-Heavy", sans-serif;
+  margin: 0;
+  padding: 25px 0 10px;
+  font-size: 26px;
+  font-weight: normal;
+  color: #008890;
+  text-transform: uppercase;
+}
+.fa-stack {
+  display: inline-block;
+  height: 2em;
+  line-height: 2em;
+  position: relative;
+  vertical-align: middle;
+  width: 2.5em em;
+}
+
+.form {
+  display: block;
+  background-color: #fff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 0 0 20px;
+  height: 500px; 
+  overflow-y: auto;
+}
+.steps-container .ant-steps-item-process .ant-steps-item-icon {
+  background-color: #007f8b !important;
+  border: #007f8b 1px solid;
+}
+/* .steps-container.ant-steps .ant-steps-item-finish .ant-steps-item-icon {
+  display: block;
+  border-radius: 100%;
+  width: 45px;
+  height: 45px;
+  padding: 11px 10px;
+  background-color: #ccc;
+  color: #fff;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-family: "AvenirLTStd-Heavy";
+  font-size: 20px;
+  text-align: center;
+} */
+
+:where(.css-dev-only-do-not-override-1b0bdye).ant-steps
+  .ant-steps-item-finish
+  .ant-steps-item-icon {
+  background-color: #ccc;
+  color: #fff;
+}
+:where(.css-dev-only-do-not-override-1b0bdye).ant-steps
+  .ant-steps-item-finish
+  > .ant-steps-item-container
+  > .ant-steps-item-tail::after {
+  background-color: #ccc;
+}
+:where(.css-dev-only-do-not-override-1b0bdye).ant-steps
+  .ant-steps-item-finish
+  > .ant-steps-item-container
+  > .ant-steps-item-content
+  > .ant-steps-item-title::after {
+  background-color: #ccc;
+}
+.anticon {
+  color: #fff;
+}
+
+.variables {
+  display: block;
+  font-size: 10px;
+  padding: 3px 0 8px;
+  text-transform: uppercase;
+  font-family: "AvenirLTStd-Heavy";
+}
+.inputVar {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  text-align: left;
+  font-size: 0;
+  /* border: 1px red solid; */
+}
+.slider {
+  display: inline-block;
+  margin: 0 10px;
+  width: calc(100% - 100px);
+  height: 3px;
+  background-color: #a5a5a5;
+  background-image: none;
+  border: 0;
+}
+:where(.css-dev-only-do-not-override-1b0bdye).ant-slider .ant-slider-track {
+  background-color: #007f8b;
+  border-radius: 2px;
+}
+:where(.css-dev-only-do-not-override-1b0bdye).ant-slider:hover
+  .ant-slider-track {
+  background-color: #007f8b;
+}
+:where(.css-dev-only-do-not-override-1b0bdye).ant-slider
+  .ant-slider-dot-active {
+  border-color: #91caff;
+}
+:where(.css-dev-only-do-not-override-1b0bdye).ant-slider
+  .ant-slider-handle::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  border-radius: 100%;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #fff;
+  background-color: #007f8b;
+  inset-block-start: 0;
+  /* inset-inline-start: 0; */
+  /* box-shadow: 0 0 0 2px #91caff; */
+  cursor: pointer;
+  transition: inset-inline-start 0.2s, inset-block-start 0.2s, width 0.2s,
+    height 0.2s, box-shadow 0.2s;
+}
+:where(.css-dev-only-do-not-override-1b0bdye).ant-slider
+  .ant-slider-handle::after {
+  box-shadow: 0 0 0 1px #007f8b;
+}
+:where(.css-dev-only-do-not-override-1b0bdye).ant-slider
+  .ant-slider-handle:hover::after,
+:where(.css-dev-only-do-not-override-1b0bdye).ant-slider
+  .ant-slider-handle:active::after,
+:where(.css-dev-only-do-not-override-1b0bdye).ant-slider
+  .ant-slider-handle:focus::after {
+  width: 12px;
+  height: 12px;
+  inset-inline-start: -1px;
+  inset-block-start: -1px;
+}
+:where(.css-dev-only-do-not-override-1b0bdye).ant-slider:hover
+  .ant-slider-handle::after {
+  box-shadow: 0 0 0 2px #007f8b;
+}
+:where(.css-dev-only-do-not-override-1b0bdye).ant-slider
+  .ant-slider-handle:hover::after,
+:where(.css-dev-only-do-not-override-1b0bdye).ant-slider
+  .ant-slider-handle:active::after,
+:where(.css-dev-only-do-not-override-1b0bdye).ant-slider
+  .ant-slider-handle:focus::after {
+  box-shadow: 0 0 0 4px #007f8b;
+}
+.min {
+  position: absolute;
+  top: 20px;
+  left: 2px;
+  color: #a5a5a5;
+  font-family: "AvenirLTStd-Heavy";
+}
+.max{
+  position: absolute;
+    top: 50px;
+    right: 222px;
+    color: #a5a5a5;
+    font-family: 'AvenirLTStd-Heavy';
+}
+
+:where(.css-dev-only-do-not-override-1b0bdye).ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
+  border-color: #007f8b;
+  background-color: #007f8b;
+}
+:where(.css-dev-only-do-not-override-1b0bdye).ant-radio-wrapper .ant-radio-checked::after {
+  border: 1px solid #007f8b;
+
+}
+.ant-radio-wrapper:hover :where(.css-dev-only-do-not-override-1b0bdye).ant-radio-wrapper, :where(.css-dev-only-do-not-override-1b0bdye).ant-radio-wrapper:hover .ant-radio-inner {
+  border-color: #007f8b;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
