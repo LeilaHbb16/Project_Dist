@@ -1,41 +1,126 @@
 import React, { useState, useEffect } from 'react';
 import { Table } from 'antd';
-import 'antd/dist/antd.css';
-import { fetchHouseEstimations } from './api';
+import { fetchHouseEstimations } from './api.js';
 
 const HousingTable = () => {
-  const [houseEstimations, setHouseEstimations] = useState(null);
-
+  const [loading,setLoading]=useState(true)
+  // const [houseEstimations, setHouseEstimations] = useState(null);
+  const [houseEstimations, setHouseEstimations] = useState([
+    { indus: 1, zn: 1000, crim: 2000, target: "555",chas:'false' },{ indus: 1, zn: 1000, crim: 2000, target: "11" },{ indus: 1, zn: 1000, crim: 2000, target: "44" }
+  ]);
   useEffect(() => {
-    
     fetchHouseEstimations()
       .then(estimations => {
-        setHouseEstimations(estimations);
+        console.log(estimations); // Afficher les estimations dans la console
+        // setHouseEstimations(estimations);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Erreur lors de la récupération des estimations:', error.message);
+        setLoading(false);
       });
   }, []);
+
 
   // Définir les colonnes du tableau
   const columns = [
     {
-      title: 'indus',
-      dataIndex: 'indus',
-      key: 'indus',
+      title: 'Criminalité',
+      dataIndex: 'crim',
+      key: 'CRIM',
+      sorter: (a, b) => a.target - b.target,
     },
-    // Ajoutez d'autres colonnes selon vos besoins
+
     {
-      title: 'zn',
+      title: 'Terrains résidentiels',
       dataIndex: 'zn',
       key: 'zn',
+      sorter: (a, b) => a.target - b.target,
     },
     {
-      title: 'target',
+      title: 'Entreprises non commerciale',
+      dataIndex: 'indus',
+      key: 'INDUS',
+      width: 30,
+      sorter: (a, b) => a.target - b.target,
+    },
+    {
+      title: 'Proximité à la rivière Charles',
+      dataIndex: 'chas',
+      key: 'CHAS',
+      sorter: (a, b) => a.target - b.target,
+    },
+    {
+      title: 'Concentration d’oxyde nitrique',
+      dataIndex: 'nox',
+      key: 'NOX',
+      sorter: (a, b) => a.target - b.target,
+    },
+    {
+      title: 'Nombre moyen de pièces',
+      dataIndex: 'rm',
+      key: 'RM',
+      sorter: (a, b) => a.target - b.target,
+    },
+    {
+      title: 'Maisons anciennes',
+      dataIndex: 'age',
+      key: 'AGE',
+      sorter: (a, b) => a.target - b.target,
+    },
+    {
+      title: 'Distance aux centres d’emploi',
+      dataIndex: 'dis',
+      key: 'DIS',
+      sorter: (a, b) => a.target - b.target,
+    },
+    {
+      title: 'Accessibilité aux autoroutes',
+      dataIndex: 'rad',
+      key: 'RAD',
+      sorter: (a, b) => a.target - b.target,
+    },
+    {
+      title: 'Taux d’imposition foncière',
+      dataIndex: 'tax',
+      key: 'TAX',
+      sorter: (a, b) => a.target - b.target,
+    },
+    {
+      title: 'Ratio élèves/professeur',
+      dataIndex: 'ptratio',
+      key: 'PTRATIO',
+      sorter: (a, b) => a.target - b.target,
+    },
+    {
+      title: 'Personnes de couleur',
+      dataIndex: 'b',
+      key: 'B',
+      sorter: (a, b) => a.target - b.target,
+    },
+    {
+      title: 'Population de classe inférieure',
+      dataIndex: 'lstat',
+      key: 'LSTAT',
+      sorter: (a, b) => a.target - b.target,
+    },
+    {
+      title: 'Prix',
       dataIndex: 'target',
       key: 'target',
+      sorter: (a, b) => a.target - b.target,
     },
   ];
 
   return (
-    <Table dataSource={houseEstimations} columns={columns} />
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div style={{ width: '100%', maxWidth: '800px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', borderRadius: '8px', padding: '20px', overflow: 'auto' }}>
+
+      <h1>Les estimations</h1>
+
+      <Table dataSource={houseEstimations} columns={columns} loading={loading} />
+      </div>
+    </div>
   );
 };
 
