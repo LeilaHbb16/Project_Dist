@@ -4,15 +4,13 @@ import { fetchHouseEstimations } from './api.js';
 
 const HousingTable = () => {
   const [loading,setLoading]=useState(true)
-  // const [houseEstimations, setHouseEstimations] = useState(null);
-  const [houseEstimations, setHouseEstimations] = useState([
-    { indus: 1, zn: 1000, crim: 2000, target: "555",chas:'false' },{ indus: 1, zn: 1000, crim: 2000, target: "11" },{ indus: 1, zn: 1000, crim: 2000, target: "44" }
-  ]);
+  const [houseEstimations, setHouseEstimations] = useState(null);
+
   useEffect(() => {
     fetchHouseEstimations()
       .then(estimations => {
-        console.log(estimations); // Afficher les estimations dans la console
-        // setHouseEstimations(estimations);
+        console.log(estimations); 
+        setHouseEstimations(estimations);
         setLoading(false);
       })
       .catch(error => {
@@ -21,8 +19,6 @@ const HousingTable = () => {
       });
   }, []);
 
-
-  // Définir les colonnes du tableau
   const columns = [
     {
       title: 'Criminalité',
@@ -48,7 +44,7 @@ const HousingTable = () => {
       title: 'Proximité à la rivière Charles',
       dataIndex: 'chas',
       key: 'CHAS',
-      sorter: (a, b) => a.target - b.target,
+      render: (value) => value ? 'Oui' : 'Non',
     },
     {
       title: 'Concentration d’oxyde nitrique',
@@ -116,7 +112,7 @@ const HousingTable = () => {
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <div style={{ width: '100%', maxWidth: '800px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', borderRadius: '8px', padding: '20px', overflow: 'auto' }}>
 
-      <h1>Les estimations</h1>
+      <h1>PrixImmo Boston </h1>
 
       <Table dataSource={houseEstimations} columns={columns} loading={loading} />
       </div>
